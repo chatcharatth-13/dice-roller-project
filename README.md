@@ -8,11 +8,6 @@ A simple and fun dice roller application that simulates rolling one or more dice
 
 - 🎲 Roll one or multiple dice (e.g. D6, D20, D100)
 - 🔁 Re-roll functionality
-- 🎨 Simple and clean user interface (if GUI)
-- 🖥️ Command-line interface support (if CLI)
-- 📜 History of previous rolls (optional feature)
-- ⚙️ Customizable number of dice and sides
-- 🧪 Lightweight and easy to use
 
 ---
 
