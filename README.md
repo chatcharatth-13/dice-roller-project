@@ -6,9 +6,10 @@ A simple and fun dice roller application that simulates rolling one or more dice
 
 ## 🧩 Key Features
 
+- Menu to choose(Reroll, Mini game, Quit)
 - 🎲 Roll one or multiple dice (e.g. D6, D20, D100)
 - 🔁 Re-roll functionality
-
+- Mini game (Shut the Box)
 ---
 
 ## ▶️ How to Use
