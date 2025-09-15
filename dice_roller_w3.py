@@ -3,7 +3,7 @@ import itertools
 import json
 import os  
 
-# --- CORE DICE FUNCTIONS (Unchanged) ---
+# --- CORE DICE FUNCTIONS ---
 def roll_single_die(num_sides=6):
     """
     Rolls a single die with a specified number of sides.
