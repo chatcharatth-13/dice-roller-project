@@ -1,5 +1,7 @@
 import random
 import itertools
+import json
+import os  
 
 # --- CORE DICE FUNCTIONS (Unchanged) ---
 def roll_single_die(num_sides=6):
@@ -24,6 +26,32 @@ def roll_multiple_dice(num_dice, num_sides=6):
         results.append(roll_single_die(num_sides))
     return results
 
+def save_game(tiles):
+    """Saves the current list of open tiles to a JSON file."""
+    game_state = {'open_tiles': tiles}
+    try:
+        with open('savegame.json', 'w') as f:
+            json.dump(game_state, f)
+    except IOError as e:
+        print(f"Error saving game: {e}")
+
+def load_game():
+    """Loads the list of open tiles from a JSON file.
+    If no save file exists, starts a new game.
+    """
+    try:
+        with open('savegame.json', 'r') as f:
+            game_state = json.load(f)
+            # Basic validation to ensure the file is not empty or malformed
+            if 'open_tiles' in game_state and isinstance(game_state['open_tiles'], list):
+                print("--- Found a saved game. Loading... ---")
+                return game_state['open_tiles']
+            else:
+                return list(range(1, 13)) # Return new game if file is invalid
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If file doesn't exist or is empty/corrupt, start a new game
+        return list(range(1, 13))
+
 # --- SHUT THE BOX MINI-GAME (Unchanged) ---
 def is_move_possible(open_tiles, roll_sum):
     """Checks if any combination of open tiles sums to the roll."""
@@ -34,14 +62,18 @@ def is_move_possible(open_tiles, roll_sum):
     return False
 
 def play_shut_the_box():
-    """Main function to play a game of Shut the Box."""
-    tiles = list(range(1, 10))
-    print("\n--- Welcome to Shut the Box! ---")
-    print("Goal: Flip down all tiles. Your turn ends when you can't match your roll.")
+    """Main function to play a game of Shut the Box with save/load."""
+    # CHANGED: Load game state from file or start a new game
+    tiles = load_game()
+    
+    print("\n--- Welcome to Shut the Box (1-12 Version)! ---")
+    print("Goal: Flip down all tiles. You will always roll two dice.")
 
+    # Main game loop
     while True:
+        # ... (The dice roll and display logic remains the same) ...
         print(f"\nOpen tiles: {tiles}")
-        num_dice = 2 if sum(tiles) > 6 else 1
+        num_dice = 2
         roll = roll_multiple_dice(num_dice, 6)
         roll_sum = sum(roll)
         print(f"You rolled: {roll} (Sum: {roll_sum})")
@@ -49,31 +81,41 @@ def play_shut_the_box():
         if not is_move_possible(tiles, roll_sum):
             print(f"No possible moves for a roll of {roll_sum}. Game Over!")
             print(f"Your final score (sum of remaining tiles): {sum(tiles)}")
+            if os.path.exists('savegame.json'):
+                os.remove('savegame.json') # Clean up save file
             break
 
+        # Input loop
         while True:
             try:
+                # ... (Input logic remains the same) ...
                 choice_str = input("Enter tiles to shut, separated by spaces: ")
-                if not choice_str: continue # Handle empty input
+                if not choice_str: continue
                 chosen_tiles = [int(n) for n in choice_str.split()]
 
                 if sum(chosen_tiles) != roll_sum:
-                    print(f"Error: The sum of your chosen tiles ({sum(chosen_tiles)}) does not match the roll sum ({roll_sum}). Try again.")
+                    print(f"Error: Sum of tiles does not match roll sum. Try again.")
                 elif not all(tile in tiles for tile in chosen_tiles):
                     print("Error: You chose a tile that is already shut. Try again.")
                 else:
+                    # Successful move
                     for tile in chosen_tiles:
                         tiles.remove(tile)
+                    save_game(tiles) # CHANGED: Save the game after a valid move
                     break 
             except ValueError:
                 print("Invalid input. Please enter numbers separated by spaces.")
 
+        # Win condition
         if not tiles:
             print("\nCongratulations! You have Shut the Box! 🎉")
+            if os.path.exists('savegame.json'):
+                os.remove('savegame.json') # Clean up save file
             break
+            
     print("Returning to the main menu...")
 
-# --- NEW FUNCTION TO HANDLE THE DICE ROLLING MODE ---
+# --- FUNCTION TO HANDLE THE DICE ROLLING MODE ---
 def handle_dice_rolling():
     """Manages the dice rolling interface."""
     print("\n--- Dice Roller ---")
