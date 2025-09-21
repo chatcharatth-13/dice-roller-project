@@ -1,25 +1,52 @@
-# 🎲 Dice Roller Project
+Dice Roller App
+A web-based application featuring a versatile dice roller and the classic "Shut the Box" game. The project is built with a Python/Flask backend and a dynamic JavaScript frontend. The entire application is containerized using Docker for simple and reliable setup.
 
-A simple and fun dice roller application that simulates rolling one or more dice. Perfect for board games, RPGs, or random number generation!
+Live Preview
+(Optional: You can take a screenshot of your running application, upload it to a site like Imgur, and paste the link here to make it look even more professional!)
 
----
+Key Technologies
+Backend: Python, Flask
 
-## 🧩 Key Features
+Frontend: HTML, Tailwind CSS, JavaScript
 
-- Menu to choose(Reroll, Mini game, Quit)
-- 🎲 Roll one or multiple dice (e.g. D6, D20, D100)
-- 🔁 Re-roll functionality
-- Mini game (Shut the Box)
----
+Containerization: Docker, Docker Compose
 
-## ▶️ How to Use
+Features
+Dice Roller: Roll any number of dice with any number of sides (e.g., 2d6, 1d20).
 
-### Option 1: Command Line (CLI)
+Shut the Box: A fully interactive single-player game.
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/dice-roller.git
-cd dice-roller
+Web GUI: A clean, modern, and responsive user interface.
 
-# Run the script
-python dice_roller_final.py
+Containerized: Runs anywhere Docker is installed, with no need to install Python or other dependencies manually.
+
+How to Run This Project
+To get this project running locally, please follow these steps.
+
+1. Prerequisites
+
+You must have Docker installed on your system.
+
+You must have Git installed to clone the repository.
+
+2. Clone the Repository
+
+Open your terminal and clone this repository to your local machine:
+
+git clone [https://github.com/chatcharatth-13/dice-roller-project.git](https://github.com/chatcharatth-13/dice-roller-project.git)
+
+3. Navigate to the Directory
+
+cd dice-roller-project
+
+4. Build and Run with Docker Compose
+
+Use this single command to build the Docker image and start the application:
+
+docker-compose up --build
+
+5. Open in Your Browser
+
+Once the container is running, open your favorite web browser and navigate to:
+
+http://localhost:5000
