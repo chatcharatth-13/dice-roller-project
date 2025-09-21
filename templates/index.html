@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLI Toolkit - Web UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tile { transition: all 0.2s ease-in-out; }
+        .tile.open { background-color: #2563eb; color: white; cursor: pointer; }
+        .tile.open:hover { background-color: #1d4ed8; }
+        .tile.shut { background-color: #4b5563; color: #9ca3af; cursor: not-allowed; opacity: 0.7; }
+        .tile.selected { background-color: #16a34a; color: white; transform: scale(1.05); box-shadow: 0 0 15px rgba(22, 163, 74, 0.7); }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-4 sm:p-8">
+
+    <div class="w-full max-w-2xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-400">Dice Roller Project</h1>
+            <p class="text-gray-400 mt-2">Mini project for CP352301</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="flex justify-center border-b border-gray-700 mb-8">
+            <button id="btn-roller" class="px-6 py-3 text-lg font-medium text-blue-400 border-b-2 border-blue-400">Dice Roller</button>
+            <button id="btn-stb" class="px-6 py-3 text-lg font-medium text-gray-500">Shut the Box</button>
+        </div>
+
+        <!-- Dice Roller Section -->
+        <main id="roller-section" class="bg-gray-800 p-8 rounded-lg shadow-2xl">
+            <h2 class="text-2xl font-bold mb-6 text-center">Dice Roller</h2>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <input type="text" id="dice-spec-input" placeholder="e.g., 2d6, 1d20" class="flex-grow bg-gray-700 text-white px-4 py-3 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button id="roll-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition duration-200">Roll</button>
+            </div>
+            <div id="roller-result" class="mt-6 text-center bg-gray-900 p-6 rounded-lg min-h-[80px] flex items-center justify-center">
+                <p class="text-gray-500">Results will appear here.</p>
+            </div>
+        </main>
+
+        <!-- Shut the Box Section -->
+        <main id="stb-section" class="bg-gray-800 p-8 rounded-lg shadow-2xl hidden">
+            <h2 class="text-2xl font-bold mb-4 text-center">Shut the Box</h2>
+            
+            <!-- Game Controls -->
+            <div class="flex justify-center gap-4 mb-6">
+                <button id="stb-roll-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-md transition duration-200">Roll Dice</button>
+                <button id="stb-new-game-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-5 rounded-md transition duration-200">New Game</button>
+            </div>
+            
+            <!-- Game Info Display -->
+            <div id="stb-info" class="text-center bg-gray-900 p-4 rounded-lg mb-6 min-h-[50px] flex items-center justify-center">
+                <p class="text-gray-400">Welcome! Start a new game or roll the dice.</p>
+            </div>
+
+            <!-- Tiles -->
+            <div id="stb-tiles-container" class="grid grid-cols-6 sm:grid-cols-12 gap-2 mb-6">
+                <!-- Tiles will be dynamically generated here -->
+            </div>
+            
+            <!-- Submit Move Button -->
+            <div class="text-center">
+                 <button id="stb-submit-move-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-md transition duration-200 hidden w-full sm:w-auto">Shut Selected Tiles</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- GLOBAL ELEMENTS ---
+            const rollerSection = document.getElementById('roller-section');
+            const stbSection = document.getElementById('stb-section');
+            const btnRoller = document.getElementById('btn-roller');
+            const btnStb = document.getElementById('btn-stb');
+
+            // --- NAVIGATION LOGIC ---
+            function showRoller() {
+                rollerSection.classList.remove('hidden');
+                stbSection.classList.add('hidden');
+                btnRoller.classList.add('text-blue-400', 'border-blue-400');
+                btnRoller.classList.remove('text-gray-500');
+                btnStb.classList.remove('text-blue-400', 'border-blue-400');
+                btnStb.classList.add('text-gray-500');
+            }
+
+            function showStb() {
+                stbSection.classList.remove('hidden');
+                rollerSection.classList.add('hidden');
+                btnStb.classList.add('text-blue-400', 'border-blue-400');
+                btnStb.classList.remove('text-gray-500');
+                btnRoller.classList.remove('text-blue-400', 'border-blue-400');
+                btnRoller.classList.add('text-gray-500');
+            }
+
+            btnRoller.addEventListener('click', showRoller);
+            btnStb.addEventListener('click', showStb);
+
+            // --- DICE ROLLER LOGIC ---
+            const diceSpecInput = document.getElementById('dice-spec-input');
+            const rollBtn = document.getElementById('roll-btn');
+            const rollerResult = document.getElementById('roller-result');
+
+            async function performRoll() {
+                const spec = diceSpecInput.value.trim() || '1d6';
+                rollerResult.innerHTML = `<p class="text-gray-400">Rolling...</p>`;
+                try {
+                    const response = await fetch(`/roll/${spec}`);
+                    const data = await response.json();
+                    if (data.ok) {
+                        rollerResult.innerHTML = `
+                            <div class="text-center">
+                                <p class="text-gray-400 text-sm">Rolled ${data.spec}</p>
+                                <p class="text-3xl font-bold my-1">${data.results.join(', ')}</p>
+                                <p class="text-xl text-blue-400">Sum: ${data.sum}</p>
+                            </div>
+                        `;
+                    } else {
+                        rollerResult.innerHTML = `<p class="text-red-400">${data.error}</p>`;
+                    }
+                } catch (error) {
+                    rollerResult.innerHTML = `<p class="text-red-400">An error occurred. Is the server running?</p>`;
+                }
+            }
+            
+            rollBtn.addEventListener('click', performRoll);
+            diceSpecInput.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter') {
+                    performRoll();
+                }
+            });
+
+            // --- SHUT THE BOX LOGIC ---
+            const stbInfo = document.getElementById('stb-info');
+            const stbTilesContainer = document.getElementById('stb-tiles-container');
+            const stbRollBtn = document.getElementById('stb-roll-btn');
+            const stbNewGameBtn = document.getElementById('stb-new-game-btn');
+            const stbSubmitBtn = document.getElementById('stb-submit-move-btn');
+            
+            let selectedTiles = [];
+            let currentRollSum = 0;
+
+            function renderTiles(openTiles) {
+                stbTilesContainer.innerHTML = '';
+                for (let i = 1; i <= 12; i++) {
+                    const tile = document.createElement('div');
+                    tile.textContent = i;
+                    tile.dataset.value = i;
+                    const isOpen = openTiles.includes(i);
+                    tile.className = `tile text-xl font-bold py-4 rounded-md text-center ${isOpen ? 'open' : 'shut'}`;
+                    if(isOpen){
+                        tile.addEventListener('click', handleTileClick);
+                    }
+                    stbTilesContainer.appendChild(tile);
+                }
+            }
+            
+            function handleTileClick(event){
+                const tile = event.target;
+                const value = parseInt(tile.dataset.value);
+
+                if (tile.classList.contains('selected')) {
+                    tile.classList.remove('selected');
+                    selectedTiles = selectedTiles.filter(t => t !== value);
+                } else {
+                    tile.classList.add('selected');
+                    selectedTiles.push(value);
+                }
+
+                // Check if selected sum matches roll sum and show submit button
+                const selectedSum = selectedTiles.reduce((a, b) => a + b, 0);
+                if (selectedSum === currentRollSum && currentRollSum > 0) {
+                    stbSubmitBtn.classList.remove('hidden');
+                } else {
+                    stbSubmitBtn.classList.add('hidden');
+                }
+            }
+
+            function updateUI(state) {
+                renderTiles(state.open_tiles);
+                stbInfo.textContent = state.message;
+                currentRollSum = state.roll_sum;
+
+                if (state.is_game_over) {
+                    stbRollBtn.disabled = true;
+                    stbRollBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    stbSubmitBtn.classList.add('hidden');
+                    if(state.won){
+                        stbInfo.classList.add('text-green-400');
+                    } else {
+                        stbInfo.classList.add('text-red-400');
+                    }
+                } else {
+                    stbRollBtn.disabled = false;
+                    stbRollBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    stbInfo.classList.remove('text-green-400', 'text-red-400');
+                }
+                
+                // Disable roll button if a roll has been made but not submitted
+                if(currentRollSum > 0 && !state.is_game_over) {
+                    stbRollBtn.disabled = true;
+                    stbRollBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+                
+                selectedTiles = [];
+            }
+
+            async function fetchAndUpdate() {
+                const response = await fetch('/game/state');
+                const state = await response.json();
+                updateUI(state);
+            }
+
+            stbNewGameBtn.addEventListener('click', async () => {
+                const response = await fetch('/game/new', { method: 'POST' });
+                const state = await response.json();
+                updateUI(state);
+            });
+
+            stbRollBtn.addEventListener('click', async () => {
+                const response = await fetch('/game/roll', { method: 'POST' });
+                const state = await response.json();
+                updateUI(state);
+            });
+            
+            stbSubmitBtn.addEventListener('click', async () => {
+                const response = await fetch('/game/move', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ tiles: selectedTiles })
+                });
+                const state = await response.json();
+                if (!state.ok && state.error) {
+                    alert(state.error); // Simple feedback for errors on move
+                }
+                updateUI(state);
+                stbSubmitBtn.classList.add('hidden');
+            });
+            
+            // Initial load for Shut the Box
+            fetchAndUpdate();
+        });
+    </script>
+</body>
+</html>

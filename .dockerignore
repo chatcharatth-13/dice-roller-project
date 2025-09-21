@@ -1,0 +1,28 @@
+Python
+pycache/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+.Python
+.env
+.venv
+
+Git
+.git
+.gitignore
+
+Documentation
+README.md
+
+Docker
+Dockerfile
+docker-compose.yml
+
+IDE / Editor specific
+.vscode/
+.idea/
+
+OS specific
+.DS_Store
+Thumbs.db
