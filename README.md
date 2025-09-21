@@ -22,4 +22,4 @@ git clone https://github.com/your-username/dice-roller.git
 cd dice-roller
 
 # Run the script
-python dice_roller.py
+python dice_roller_final.py
