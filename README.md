@@ -93,5 +93,5 @@ Vejwasu (Earth)
 * **Sprint 3:** [Week3/Sprint3 Colab](https://colab.research.google.com/drive/1RV4uUEZhyXVIww9SW9dtGm42ey54vNgm?usp=sharing)
 * **Final Project:** [Sprint Final Colab](https://colab.research.google.com/drive/1okmOfQbHJQev_9RU1s4cc0qT1gG7Sg4a?usp=sharing)
 
-[Presentation](https://www.canva.com/design/DAGzu-J97zw/A0-jPUkiQnLRqUEMIrgX6A/view?utm_content=DAGzu-J97zw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he61e4618f9)
+* **Presentation:** [Canva](https://www.canva.com/design/DAGzu-J97zw/A0-jPUkiQnLRqUEMIrgX6A/view?utm_content=DAGzu-J97zw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he61e4618f9)
 
