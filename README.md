@@ -85,7 +85,23 @@ Shut the Box
 
 ## 👤 Author
 Chatcharat (Knight) 
+    Self Grade 
+        Contribution: 10
+        Communication: 7
+        Collaboration: 9
+    Peer Grade
+        Contribution:
+        Communication:
+        Collaboration:
 Vejwasu (Earth)
+    Self Grade 
+        Contribution:
+        Communication:
+        Collaboration:
+    Peer Grade
+        Contribution: 7
+        Communication: 8
+        Collaboration: 9
 
 ## 🎲 Colab Notebooks & Presentation
 * **Sprint 1:** [Week1/Sprint1 Colab](https://colab.research.google.com/drive/1FnTkxwaipIMXnhL8Zisg0tnQbo4AgA-A?usp=sharing)
