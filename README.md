@@ -25,20 +25,8 @@ Fully containerized for easy deployment with **Docker** or **Docker Compose**.
 
 ---
 
-project/
-│── app.py                # Flask backend
-│── game_logic.py         # Core game logic (shared by CLI & web)
-│
-├── templates/
-│     └── index.html      # Web UI
-│
-├── static/               # Optional CSS/JS assets
-│
-│── requirements.txt      # Python dependencies
-│── Dockerfile            # Container build instructions
-│── docker-compose.yml    # Multi-container orchestration
-│── .dockerignore         # Ignore unnecessary files in Docker builds
-│── README.md             # Project documentation
+## 📂 Project Structure
+project/ │ ├── app.py               # Flask backend (routes for Dice Roller & Shut the Box) ├── game_logic.py        # Core game logic (shared between CLI & web) │ ├── templates/           # HTML templates │   └── index.html       # Main web UI with tabs for both games │ ├── static/              # Optional CSS/JS/image assets │ ├── requirements.txt     # Python dependencies ├── Dockerfile           # Container build instructions ├── docker-compose.yml   # Multi-container orchestration ├── .dockerignore        # Files/folders excluded from Docker builds └── README.md            # Project documentation
 
 ---
 
