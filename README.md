@@ -1,4 +1,4 @@
-<img width="887" height="578" alt="image" src="https://github.com/user-attachments/assets/f271b938-91f5-43a2-bc4d-ee0cc350da91" /># 🎲 Dice Roller Project (Web + Docker)
+# 🎲 Dice Roller Project (Web + Docker)
 
 A browser-based toolkit featuring:
 - **Dice Roller** — roll any number of dice with any number of sides using `XdY` notation (e.g., `2d6`, `1d20`).
