@@ -1,4 +1,4 @@
-# 🎲 Dice Roller Project (Web + Docker)
+<img width="887" height="578" alt="image" src="https://github.com/user-attachments/assets/f271b938-91f5-43a2-bc4d-ee0cc350da91" /># 🎲 Dice Roller Project (Web + Docker)
 
 A browser-based toolkit featuring:
 - **Dice Roller** — roll any number of dice with any number of sides using `XdY` notation (e.g., `2d6`, `1d20`).
@@ -25,9 +25,7 @@ Fully containerized for easy deployment with **Docker** or **Docker Compose**.
 
 ---
 
-## 📂 Project Structure
-
-```project/ │ ├── 🐍 app.py               # Flask backend (routes for Dice Roller & Shut the Box) ├── 🧠 game_logic.py        # Core game logic (shared between CLI & web) │ ├── 📁 templates/           # HTML templates │   └── 🖥 index.html        # Main web UI with tabs for both games │ ├── 📁 static/              # Optional CSS/JS/image assets │ ├── 📜 requirements.txt     # Python dependencies ├── 🐳 Dockerfile           # Container build instructions ├── ⚙ docker-compose.yml    # Multi-container orchestration ├── 🚫 .dockerignore        # Files/folders excluded from Docker builds └── 📖 README.md            # Project documentation```
+<pre>```markdownproject/├── app.py               # Flask backend (routes for Dice Roller & Shut the Box)├── game_logic.py        # Core game logic (shared between CLI & web)│├── templates/           # HTML templates│   └── index.html       # Main web UI with tabs for both games│├── static/              # Optional CSS/JS/image assets│├── requirements.txt     # Python dependencies├── Dockerfile           # Container build instructions├── docker-compose.yml   # Multi-container orchestration├── .dockerignore        # Files/folders excluded from Docker builds└── README.md            # Project documentation```</pre>
 
 ---
 
