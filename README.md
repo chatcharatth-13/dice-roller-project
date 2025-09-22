@@ -28,21 +28,22 @@ Fully containerized for easy deployment with **Docker** or **Docker Compose**.
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
-```bash
-git clone https://github.com/chatcharatth-13/dice-roller-project.git
-cd dice-roller-project
+`bash
+git clone https://github.com/chatcharatth-13/dice-roller-project.git`
 
-2. Install dependencies (local run)
+`cd dice-roller-project`
+
+### 2. Install dependencies (local run)
 pip install -r requirements.txt
 
 
-3. Run locally
+### 3. Run locally
 python app.py
 
 
 Visit: http://localhost:5000
 
-🐳 Running with Docker
+## 🐳 Running with Docker
 Build and run
 docker-compose up --build
 
@@ -55,18 +56,18 @@ docker-compose up
 
 Flask will reload when you edit files.
 
-⚙ Configuration
+## ⚙ Configuration
 - Port: Defaults to 5000 inside the container, mapped to 5000 on your host.
 - Save file: savegame.json stores Shut the Box progress.
 - In production, it’s excluded via .dockerignore for a fresh start each run.
 - In development, comment it out in .dockerignore to persist progress.
 
-🛠 Tech Stack
+## 🛠 Tech Stack
 - Backend: Python 3 + Flask
 - Frontend: HTML, CSS, JavaScript (vanilla)
 - Containerization: Docker, Docker Compose
 
-🎯 Usage
+## 🎯 Usage
 Dice Roller
 - Select the Dice Roller tab.
 - Enter a command:
@@ -82,6 +83,6 @@ Shut the Box
 - Click Submit Move to confirm.
 - Win by shutting all tiles; lose if no moves are possible.
 
-👤 Author
+## 👤 Author
 Chatcharat (Knight) 
 Vejwasu (Earth)
