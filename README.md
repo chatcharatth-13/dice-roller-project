@@ -25,27 +25,20 @@ Fully containerized for easy deployment with **Docker** or **Docker Compose**.
 
 ---
 
-## 🗂 Project Structure
-project/ 
-│── app.py                
-# Flask backend 
-│── game_logic.py          
-# Core game logic (shared by CLI & web) 
-│── templates/ 
-│     └── index.html       
-# Web UI 
-│── static/                
-# Optional CSS/JS assets 
-│── requirements.txt       
-# Python dependencies 
-│── Dockerfile             
-# Container build instructions 
-│── docker-compose.yml     
-# Multi-container orchestration 
-│── .dockerignore          
-# Ignore unnecessary files in Docker builds 
-│── README.md              
-# This file
+project/
+│── app.py                # Flask backend
+│── game_logic.py         # Core game logic (shared by CLI & web)
+│
+├── templates/
+│     └── index.html      # Web UI
+│
+├── static/               # Optional CSS/JS assets
+│
+│── requirements.txt      # Python dependencies
+│── Dockerfile            # Container build instructions
+│── docker-compose.yml    # Multi-container orchestration
+│── .dockerignore         # Ignore unnecessary files in Docker builds
+│── README.md             # Project documentation
 
 ---
 
