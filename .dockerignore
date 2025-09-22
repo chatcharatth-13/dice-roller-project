@@ -1,28 +1,41 @@
-Python
-pycache/
+# -------------------------
+# Python cache / build files
+# -------------------------
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.egg-info
-.Python
-.env
-.venv
+*.pyd
+*.pkl
+*.log
 
-Git
+# -------------------------
+# Virtual environments
+# -------------------------
+venv/
+.env/
+.venv/
+
+# -------------------------
+# Version control
+# -------------------------
 .git
 .gitignore
 
-Documentation
-README.md
-
-Docker
-Dockerfile
-docker-compose.yml
-
-IDE / Editor specific
-.vscode/
-.idea/
-
-OS specific
+# -------------------------
+# OS-specific files
+# -------------------------
 .DS_Store
 Thumbs.db
+
+# -------------------------
+# Local data files
+# -------------------------
+# In production, you don't want to ship your local savegame.json
+# In dev, you can comment this out if you want to keep your progress
+savegame.json
+
+# -------------------------
+# Docker-related
+# -------------------------
+docker-compose.override.yml
