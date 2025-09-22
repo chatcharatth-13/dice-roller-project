@@ -1,4 +1,4 @@
-# 🎲 Ultimate Dice Toolkit (Web + Docker)
+# 🎲 Dice Roller Project (Web + Docker)
 
 A browser-based toolkit featuring:
 - **Dice Roller** — roll any number of dice with any number of sides using `XdY` notation (e.g., `2d6`, `1d20`).
