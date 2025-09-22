@@ -87,7 +87,7 @@ Shut the Box
 Chatcharat (Knight) 
 Vejwasu (Earth)
 
-## 🚀 Colab Notebooks & Presentation
+## 🎲 Colab Notebooks & Presentation
 * **Sprint 1:** [Week1/Sprint1 Colab](https://colab.research.google.com/drive/1FnTkxwaipIMXnhL8Zisg0tnQbo4AgA-A?usp=sharing)
 * **Sprint 2:** [Week2/Sprint2 Colab](https://colab.research.google.com/drive/1BmnGrpV152t0dT1SCXXN_6GWZbAIr8k2?usp=sharing)
 * **Sprint 3:** [Week3/Sprint3 Colab](https://colab.research.google.com/drive/1RV4uUEZhyXVIww9SW9dtGm42ey54vNgm?usp=sharing)
