@@ -45,7 +45,7 @@ Visit: http://localhost:5000
 
 ## 🐳 Running with Docker
 Build and run
-docker-compose up --build
+`docker-compose up --build`
 
 
 Then open: http://localhost:5000
