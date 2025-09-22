@@ -33,7 +33,8 @@ project/
 # Core game logic (shared by CLI & web) 
 │── templates/ 
 │     └── index.html       
-# Web UI │── static/                
+# Web UI 
+│── static/                
 # Optional CSS/JS assets 
 │── requirements.txt       
 # Python dependencies 
