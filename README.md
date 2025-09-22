@@ -25,10 +25,6 @@ Fully containerized for easy deployment with **Docker** or **Docker Compose**.
 
 ---
 
-<pre>```markdownproject/├── app.py               # Flask backend (routes for Dice Roller & Shut the Box)├── game_logic.py        # Core game logic (shared between CLI & web)│├── templates/           # HTML templates│   └── index.html       # Main web UI with tabs for both games│├── static/              # Optional CSS/JS/image assets│├── requirements.txt     # Python dependencies├── Dockerfile           # Container build instructions├── docker-compose.yml   # Multi-container orchestration├── .dockerignore        # Files/folders excluded from Docker builds└── README.md            # Project documentation```</pre>
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
