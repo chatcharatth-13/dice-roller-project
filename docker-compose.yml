@@ -1,25 +1,13 @@
-# Specifies the version of the Docker Compose file format.
-version: '3.8'
+version: "3.9"
 
-# Defines the services that make up your application.
 services:
-  # The name of our service (can be anything, 'web' is a common convention).
-  web:
-    # A friendly name for the container that will be created.
-    container_name: dice-toolkit-app
-    
-    # Instructs Docker Compose to build an image from the Dockerfile
-    # in the current directory ('.').
+  shutthebox:
     build: .
-    
-    # Maps port 5000 on your local machine to port 5000 inside the container.
-    # This is what lets you access the app at http://localhost:5000.
+    container_name: shutthebox_app
     ports:
       - "5000:5000"
-      
-    # (Optional, but great for development)
-    # This mounts your project directory on your computer into the /app directory
-    # inside the container. Any changes you make to your Python or HTML files
-    # will be reflected instantly without needing to rebuild the image.
     volumes:
       - .:/app
+    environment:
+      - FLASK_ENV=development
+    command: python app.py
