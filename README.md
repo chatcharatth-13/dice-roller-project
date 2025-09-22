@@ -64,7 +64,7 @@ Flask will reload when you edit files.
 
 ## 🛠 Tech Stack
 - Backend: Python 3 + Flask
-- Frontend: HTML, CSS, JavaScript (vanilla)
+- Frontend: HTML
 - Containerization: Docker, Docker Compose
 
 ## 🎯 Usage
@@ -85,7 +85,7 @@ Shut the Box
 
 ## 👤 Author
 
-**Chatcharat (Knight)**
+**Chatcharat Thongsuepsai (Knight)**
 * **Self Grade**
     * Contribution: 10
     * Communication: 7
@@ -97,7 +97,7 @@ Shut the Box
 
 ---
 
-**Vejwasu (Earth)**
+**Vejwasu Boonyor (Earth)**
 * **Self Grade**
     * Contribution: 
     * Communication: 
