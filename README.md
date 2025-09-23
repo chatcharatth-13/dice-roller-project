@@ -68,14 +68,14 @@ Flask will reload when you edit files.
 - Containerization: Docker, Docker Compose
 
 ## 🎯 Usage
-Dice Roller
+* **Dice Roller**
 - Select the Dice Roller tab.
 - Enter a command:
 - roll → roll 1d6
 - roll 2d6 → roll two six-sided dice
 - roll 1d20 → roll one twenty-sided die
 - Click Roll to see results.
-Shut the Box
+* **Shut the Box**
 - Select the Shut the Box tab.
 - Click Start New Game.
 - Click Roll Dice each turn.
