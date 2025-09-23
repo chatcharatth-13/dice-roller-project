@@ -4,7 +4,7 @@ A browser-based toolkit featuring:
 - **Dice Roller** — roll any number of dice with any number of sides using `XdY` notation (e.g., `2d6`, `1d20`).
 - **Shut the Box** — the classic dice-and-tiles game, now playable in your browser with save/load support.
 
-Built with **Flask** for the backend and **HTML/CSS/JavaScript** for the frontend.  
+Built with **Flask** for the backend and **HTML** for the frontend.  
 Fully containerized for easy deployment with **Docker** or **Docker Compose**.
 
 ---
