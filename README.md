@@ -93,7 +93,7 @@ Flask will reload when you edit files.
     * Contribution: 10
     * Communication: 8
     * Collaboration: 9
-* **Weighted Average by Source: Self Grade: 30%, Peer Grade: 70% **
+* **Weighted Average by Source: Self Grade: 30%, Peer Grade: 70%**
     * Avg Self Grade: 8.67
     * Avg Peer Grade: 9.00
     * Final Weighted Score: 8.90
@@ -107,7 +107,7 @@ Flask will reload when you edit files.
     * Contribution: 7
     * Communication: 8
     * Collaboration: 9
-* **Weighted Average by Source: Self Grade: 30%, Peer Grade: 70% **
+* **Weighted Average by Source: Self Grade: 30%, Peer Grade: 70%**
     * Avg Self Grade: 8.00
     * Avg Peer Grade: 8.00
     * Final Weighted Score: 8.00
