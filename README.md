@@ -83,8 +83,7 @@ Flask will reload when you edit files.
    * Click Submit Move to confirm.
    *  Win by shutting all tiles; lose if no moves are possible.
 
-## 👤 Author
-
+## 👤 Authors
 **Chatcharat Thongsuepsai (Knight)**
 * **Self Grade**
     * Contribution: 10
@@ -94,8 +93,10 @@ Flask will reload when you edit files.
     * Contribution: 10
     * Communication: 8
     * Collaboration: 9
-
----
+* **Weighted Average by Source: Self Grade: 30% (0.3), Peer Grade: 70% (0.7)**
+    * Avg Self Grade: 8.67
+    * Avg Peer Grade: 9.00
+    * Final Weighted Score: 8.90
 
 **Vejwasu Boonyor (Earth)**
 * **Self Grade**
@@ -106,6 +107,10 @@ Flask will reload when you edit files.
     * Contribution: 7
     * Communication: 8
     * Collaboration: 9
+* **Weighted Average by Source: Self Grade: 30% (0.3), Peer Grade: 70% (0.7)**
+    * Avg Self Grade: 8.00
+    * Avg Peer Grade: 8.00
+    * Final Weighted Score: 8.00
 
 ## 🎲 Colab Notebooks & Presentation
 * **Sprint 1:** [Week1/Sprint1 Colab](https://colab.research.google.com/drive/1FnTkxwaipIMXnhL8Zisg0tnQbo4AgA-A?usp=sharing)
