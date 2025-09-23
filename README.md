@@ -91,17 +91,17 @@ Shut the Box
     * Communication: 7
     * Collaboration: 9
 * **Peer Grade**
-    * Contribution: 
-    * Communication: 
-    * Collaboration: 
+    * Contribution: 10
+    * Communication: 8
+    * Collaboration: 9
 
 ---
 
 **Vejwasu Boonyor (Earth)**
 * **Self Grade**
-    * Contribution: 
-    * Communication: 
-    * Collaboration: 
+    * Contribution: 8
+    * Communication: 8
+    * Collaboration: 8
 * **Peer Grade**
     * Contribution: 7
     * Communication: 8
